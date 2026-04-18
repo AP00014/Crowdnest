@@ -3,102 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+    <title>Sign Up – CrowdNest</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
     <style>
-        .login-nav{
-            width: 100%;
-            display: flex;
-            background-color: #FFFFFF;
-            padding:10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            justify-content: space-between;
-            align-items: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-        .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #1E3A8A;
-    align-self: center;
-}
-.logo a {
-    text-decoration: none;
-    color: inherit;
-}
-.sign-up-link a{
-    text-decoration: none;
-    color: #1E3A8A;
-    }
+        }
 
-   form{
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   } 
-    form h1{
-        text-align: center;
-        color: #1E3A8A;
-    }
-    form label{
-        display: block;
-        margin-bottom: 5px;
-        color: #333;
-    }
-    form input{
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-    form button{
-        width: 100%;
-        padding: 10px;
-        background-color: #1E3A8A;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+        body {
+            background-color: #f3f6fb;
+            min-height: 100vh;
+        }
+
+        /* ── Navbar ── */
+        .auth-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .auth-nav .logo a {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+        }
+
+        .auth-nav .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .auth-nav .nav-links span {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .auth-nav .nav-links a.nav-text {
+            text-decoration: none;
+            color: #1e3a8a;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 7px 14px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .auth-nav .nav-links a.nav-text:hover {
+            background-color: #e1e8f9;
+        }
+
+        .auth-nav .nav-links a.nav-btn {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 8px;
+            background-color: #1e3a8a;
+            color: #ffffff;
+            transition: background 0.2s;
+        }
+
+        .auth-nav .nav-links a.nav-btn:hover {
+            background-color: #3b82f6;
+        }
+
+        /* ── Form card ── */
+        .auth-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 90px;
+            padding-bottom: 40px;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 440px;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09);
+            padding: 40px 36px 36px;
+        }
+
+        .auth-card h1 {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #1e3a8a;
+            margin-bottom: 28px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 14px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .auth-card label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .auth-card input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #111827;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        .auth-card input:focus {
+            border-color: #1e3a8a;
+        }
+
+        .auth-card button[type="submit"] {
+            width: 100%;
+            padding: 11px;
+            background-color: #1e3a8a;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: background 0.2s;
+        }
+
+        .auth-card button[type="submit"]:hover {
+            background-color: #3b82f6;
+        }
+
+        .auth-card .auth-footer {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .auth-card .auth-footer a {
+            color: #1e3a8a;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .auth-card .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .auth-nav {
+            flex-wrap: wrap;
+            height: auto;
+            padding: 10px 16px;
+          }
+          .auth-nav .logo a {
+            font-size: 18px;
+          }
+          .auth-nav .nav-links span {
+            display: none;
+          }
+          .auth-nav .nav-btn {
+            font-size: 13px;
+            padding: 6px 12px;
+          }
+          .auth-wrapper {
+            padding-top: 90px;
+            padding-bottom: 40px;
+          }
+          .auth-card {
+            max-width: 100%;
+            padding: 24px 20px;
+          }
+          .form-row {
+            flex-direction: column;
+            gap: 0;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .auth-nav {
+            padding: 8px 12px;
+          }
+          .auth-nav .logo a {
+            font-size: 16px;
+          }
+          .auth-card {
+            padding: 20px 16px;
+          }
+          .auth-card h1 {
+            font-size: 1.4rem;
+          }
+        }
     </style>
 </head>
 <body>
-    <nav class="login-nav">
+
+    <!-- Navbar -->
+    <nav class="auth-nav">
         <div class="logo">
-                <a href="/">CrowdNest</a>
-            </div>
-
-            <div class="sign-up-link">
-                <a href="/account/login.html">Login</a>
-            </div>
+            <a href="/">CrowdNest</a>
+        </div>
+        <div class="nav-links">
+            <span>Already have an account?</span>
+            <a href="/account/Login.html" class="nav-btn">Log In</a>
+        </div>
     </nav>
-    <form action="/signup" method="post">
-        <h1>Sign Up Page</h1>
-        <label for="username">First Name:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Sign Up</button>
-    </form>
-</body>
-</html>
+    <!-- Signup Form -->
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <h1>Create an account</h1>
+            <form action="/signup" method="post">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Repeat your password" required>
+                </div>
+
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="auth-footer">
+                Already have an account? <a href="/account/Login.html">Log in</a>
+            </p>
+        </div>
+    </div>
+
 </body>
 </html>

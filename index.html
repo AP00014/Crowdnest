@@ -11,13 +11,26 @@
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <header>
-      <nav>
+    <header class="site-header">
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <div class="nav-backdrop" id="nav-backdrop" hidden></div>
+
         <div class="left-links">
+          <button
+            type="button"
+            class="nav-menu-toggle"
+            id="nav-menu-toggle"
+            aria-expanded="false"
+            aria-controls="nav-mobile-drawer"
+          >
+            <span class="visually-hidden">Menu</span>
+            <i class="ri-menu-line nav-menu-toggle__icon nav-menu-toggle__icon--menu" aria-hidden="true"></i>
+            <i class="ri-close-line nav-menu-toggle__icon nav-menu-toggle__icon--close" aria-hidden="true"></i>
+          </button>
           <div class="logo">
             <a href="/">CrowdNest</a>
           </div>
-          <ul>
+          <ul class="nav-desktop-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="#explore">Explore projects</a></li>
             <li><a href="#how-it-works">How it works</a></li>
@@ -30,13 +43,27 @@
             name="search"
             id="search"
             placeholder="Search for projects..."
-          /><button class="search_btn"><i class="ri-search-line"></i></button>
+          /><button type="button" class="search_btn" aria-label="Search"><i class="ri-search-line"></i></button>
         </div>
 
         <div class="right-links">
-          <button type="button" class="start_project_button">Start a project</button>
           <a href="/account/Login.html" class="nav-auth">Log in</a>
           <a href="/account/signup.html" class="nav-auth nav-auth--primary">Sign up</a>
+        </div>
+
+        <div
+          id="nav-mobile-drawer"
+          class="nav-mobile-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
+          aria-hidden="true"
+        >
+          <ul class="nav-mobile-drawer__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#explore">Explore projects</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -54,13 +81,46 @@
         </ul>
       </aside>
       <div class="hero-slider">
-        <img src="/images/15.2---crowdfunding-for-business.avif" alt="" class="cover-image" />
-        <div class="slider-content">
-          <h2>Where changemakers go to grow</h2>
-          <p>
-CrowdNest combines all-in-one fundraising software, 0% fees, and built-in rewards—so you can raise more, pay less, and multiply your impact with 2.5% APY on every dollar you raise.</p>
-          <button><a href="">Start a Project</a></button>
+        <div class="slide active-slide">
+          <img src="/images/15.2---crowdfunding-for-business.avif" alt="Crowdfunding banner" class="cover-image" />
+          <div class="slider-content">
+            <div class="slider-content__inner">
+              <h2 class="slider-content__title">Where changemakers go to grow</h2>
+              <p class="slider-content__desc">
+                CrowdNest combines all-in-one fundraising software, 0% fees, and built-in rewards so you can raise more, pay less, and multiply your impact.
+              </p>
+              <a href="/start-campaign.html" class="slider-content__cta">Start a project</a>
+            </div>
+          </div>
         </div>
+
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1400&q=80" alt="People planning a project" class="cover-image" />
+          <div class="slider-content">
+            <div class="slider-content__inner">
+              <h2 class="slider-content__title">Build your idea with community support</h2>
+              <p class="slider-content__desc">
+                Share your story, collect pledges, and keep supporters updated from one simple campaign page.
+              </p>
+              <a href="index.html#explore" class="slider-content__cta">Explore projects</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80" alt="Creator presenting idea" class="cover-image" />
+          <div class="slider-content">
+            <div class="slider-content__inner">
+              <h2 class="slider-content__title">Launch faster and reach more backers</h2>
+              <p class="slider-content__desc">
+                Start in minutes with beginner-friendly tools and let your supporters help your project grow.
+              </p>
+              <a href="/start-campaign.html" class="slider-content__cta">Create campaign</a>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </section>
 
@@ -87,71 +147,109 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
           <p class="projects-label">RECOMMENDED FOR YOU</p>
           <div class="recommended-grid">
 
-
             <article class="mini-project">
               <div class="project-media project-media--1"></div>
               <div class="mini-project__info">
                 <div class="project_info_head">
                   <div class="project_avatar"></div>
-                   <h3><a href="/Explore">EPOMAKER RT98 Modular Layout Keyboard</a></h3>
+                  <h3><a href="/Explore">EPOMAKER RT98 Modular Layout Keyboard</a></h3>
                 </div>
-                  <div class="brand_name"><h2>Expomaker</h2></div>
-
+                <div class="brand_name"><h2>Expomaker</h2></div>
                 <div class="project-stats">
                   <span><i class="ri-time-line"></i> 29 days left</span>
                   <span>672% funded</span>
                 </div>
+                <div class="mini-project__expand">
+                  <p class="mini-project__desc">A high-performance 98% layout mechanical keyboard with hot-swap PCB, gasket mounting, and south-facing RGB. Built for enthusiasts who want it all in one compact board.</p>
+                  <div class="mini-project__progress-bar">
+                    <div class="mini-project__progress-fill" style="width: 100%"></div>
+                  </div>
+                  <div class="mini-project__goal-stats">
+                    <span><i class="ri-funds-line"></i> $6,720 raised</span>
+                    <span>Goal: $1,000</span>
+                  </div>
+                  <button class="fund-btn"><i class="ri-heart-fill"></i> Fund this Project</button>
+                </div>
               </div>
             </article>
-
 
             <article class="mini-project">
               <div class="project-media project-media--2"></div>
               <div class="mini-project__info">
                 <div class="project_info_head">
                   <div class="project_avatar"></div>
-                   <h3><a href="/Explore">EPOMAKER RT98 Modular Layout Keyboard</a></h3>
+                  <h3><a href="/Explore">Verses in the Dark – Poetry Collection</a></h3>
                 </div>
                 <div class="brand_name"><h2>Baroque Publishing</h2></div>
                 <div class="project-stats">
                   <span><i class="ri-time-line"></i> 14 hours left</span>
                   <span>1496% funded</span>
                 </div>
+                <div class="mini-project__expand">
+                  <p class="mini-project__desc">A curated anthology of rare poetry blending classical verse with contemporary voices. Limited print run of 500 hand-numbered, signed copies on premium paper.</p>
+                  <div class="mini-project__progress-bar">
+                    <div class="mini-project__progress-fill" style="width: 100%"></div>
+                  </div>
+                  <div class="mini-project__goal-stats">
+                    <span><i class="ri-funds-line"></i> $14,960 raised</span>
+                    <span>Goal: $1,000</span>
+                  </div>
+                  <button class="fund-btn"><i class="ri-heart-fill"></i> Fund this Project</button>
+                </div>
               </div>
             </article>
-
 
             <article class="mini-project">
               <div class="project-media project-media--3"></div>
               <div class="mini-project__info">
                 <div class="project_info_head">
                   <div class="project_avatar"></div>
-                   <h3><a href="/Explore">EPOMAKER RT98 Modular Layout Keyboard</a></h3>
+                  <h3><a href="/Explore">LINK Hub – All-in-One Charging Station</a></h3>
                 </div>
-                <div class="brand_name"><h2>Rolling square</h2></div>
+                <div class="brand_name"><h2>Rolling Square</h2></div>
                 <div class="project-stats">
                   <span><i class="ri-time-line"></i> 38 days left</span>
                   <span>1097% funded</span>
                 </div>
+                <div class="mini-project__expand">
+                  <p class="mini-project__desc">Power bank, MagSafe charger, USB-C hub, and wireless pad — all in one sleek titanium device. The only charging accessory you'll ever need on your desk.</p>
+                  <div class="mini-project__progress-bar">
+                    <div class="mini-project__progress-fill" style="width: 100%"></div>
+                  </div>
+                  <div class="mini-project__goal-stats">
+                    <span><i class="ri-funds-line"></i> $10,970 raised</span>
+                    <span>Goal: $1,000</span>
+                  </div>
+                  <button class="fund-btn"><i class="ri-heart-fill"></i> Fund this Project</button>
+                </div>
               </div>
             </article>
-
 
             <article class="mini-project">
               <div class="project-media project-media--4"></div>
               <div class="mini-project__info">
                 <div class="project_info_head">
                   <div class="project_avatar"></div>
-                   <h3><a href="/Explore">EPOMAKER RT98 Modular Layout Keyboard</a></h3>
+                  <h3><a href="/Explore">Echoes of Tomorrow – Sci-Fi Graphic Novel</a></h3>
                 </div>
-                <div class="brand_name"><h2>charles Brooks</h2></div>
+                <div class="brand_name"><h2>Charles Brooks</h2></div>
                 <div class="project-stats">
                   <span><i class="ri-time-line"></i> 49 days left</span>
                   <span>563% funded</span>
                 </div>
+                <div class="mini-project__expand">
+                  <p class="mini-project__desc">An illustrated graphic novel exploring humanity's complex relationship with AI through vivid sci-fi storytelling. 240 full-colour pages — perfect for fans of speculative fiction.</p>
+                  <div class="mini-project__progress-bar">
+                    <div class="mini-project__progress-fill" style="width: 100%"></div>
+                  </div>
+                  <div class="mini-project__goal-stats">
+                    <span><i class="ri-funds-line"></i> $5,630 raised</span>
+                    <span>Goal: $1,000</span>
+                  </div>
+                  <button class="fund-btn"><i class="ri-heart-fill"></i> Fund this Project</button>
+                </div>
               </div>
             </article>
-
 
           </div>
         </div>
@@ -172,6 +270,14 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
             <span class="discover-item__fill" style="width: 78%"></span>
           </div>
           <p class="discover-item__raised">€64,697 raised</p>
+          <div class="discover-item__expand">
+            <p class="discover-item__desc">Noreen is a mother of three battling Stage 4 Leukemia. Every donation goes directly toward her treatment, transport costs, and daily care needs as she fights for her life and her family.</p>
+            <div class="discover-item__goal-stats">
+              <span><i class="ri-user-heart-line"></i> 1,200 donors</span>
+              <span>Goal: €83,000</span>
+            </div>
+            <button class="donate-btn"><i class="ri-heart-fill"></i> Donate Now</button>
+          </div>
         </article>
 
         <div class="discover-grid">
@@ -186,7 +292,16 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
               <span class="discover-item__fill" style="width: 62%"></span>
             </div>
             <p class="discover-item__raised">€28,400 raised</p>
+            <div class="discover-item__expand">
+              <p class="discover-item__desc">Little Leni needs an urgent life-saving cardiac procedure abroad. Every cent raised covers surgery fees, hospital stays, and the long road to recovery by her family's side.</p>
+              <div class="discover-item__goal-stats">
+                <span><i class="ri-user-heart-line"></i> 892 donors</span>
+                <span>Goal: €45,000</span>
+              </div>
+              <button class="donate-btn"><i class="ri-heart-fill"></i> Donate Now</button>
+            </div>
           </article>
+
           <article class="discover-item">
             <div class="discover-item__media discover-item__media--c">
               <span class="discover-item__badge">2.4K donations</span>
@@ -198,7 +313,16 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
               <span class="discover-item__fill" style="width: 91%"></span>
             </div>
             <p class="discover-item__raised">€112,050 raised</p>
+            <div class="discover-item__expand">
+              <p class="discover-item__desc">J'Naii was diagnosed with an aggressive brain tumour at just 27. She faces mounting medical bills while at risk of losing her home. Your donation gives her a fighting chance.</p>
+              <div class="discover-item__goal-stats">
+                <span><i class="ri-user-heart-line"></i> 2,400 donors</span>
+                <span>Goal: €123,000</span>
+              </div>
+              <button class="donate-btn"><i class="ri-heart-fill"></i> Donate Now</button>
+            </div>
           </article>
+
           <article class="discover-item">
             <div class="discover-item__media discover-item__media--d">
               <span class="discover-item__badge">540 donations</span>
@@ -210,7 +334,16 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
               <span class="discover-item__fill" style="width: 44%"></span>
             </div>
             <p class="discover-item__raised">€19,200 raised</p>
+            <div class="discover-item__expand">
+              <p class="discover-item__desc">Mike tragically lost his wife Jessi and their children. Donations help cover funeral arrangements, grief counselling, and help him find the strength to rebuild his life.</p>
+              <div class="discover-item__goal-stats">
+                <span><i class="ri-user-heart-line"></i> 540 donors</span>
+                <span>Goal: €44,000</span>
+              </div>
+              <button class="donate-btn"><i class="ri-heart-fill"></i> Donate Now</button>
+            </div>
           </article>
+
           <article class="discover-item">
             <div class="discover-item__media discover-item__media--e">
               <span class="discover-item__badge">310 donations</span>
@@ -222,6 +355,14 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
               <span class="discover-item__fill" style="width: 55%"></span>
             </div>
             <p class="discover-item__raised">€12,880 raised</p>
+            <div class="discover-item__expand">
+              <p class="discover-item__desc">In loving memory of Zef — a devoted father, husband, and community pillar. Funds support his family as they grieve and navigate an incredibly difficult time together.</p>
+              <div class="discover-item__goal-stats">
+                <span><i class="ri-user-heart-line"></i> 310 donors</span>
+                <span>Goal: €23,000</span>
+              </div>
+              <button class="donate-btn"><i class="ri-heart-fill"></i> Donate Now</button>
+            </div>
           </article>
         </div>
       </div>
@@ -231,12 +372,13 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
       <div class="crowdfeed__top">
         <h2 id="crowdfeed-title">Crowdfunding</h2>
         <div class="crowdfeed__tabs">
-          <a href="/Explore" class="crowdfeed__tab crowdfeed__tab--active">Trending</a>
-          <a href="/Explore" class="crowdfeed__tab">Most funded</a>
+          <button class="crowdfeed__tab crowdfeed__tab--active" data-panel="panel-trending">Trending</button>
+          <button class="crowdfeed__tab" data-panel="panel-most-funded">Most funded</button>
         </div>
       </div>
 
-      <div class="crowdfeed__cards">
+      <!-- Trending Panel -->
+      <div class="crowdfeed__cards crowdfeed__panel active" id="panel-trending">
         <article class="crowd-card">
           <div class="crowd-card__image crowd-card__image--1"></div>
           <div class="crowd-card__meta">
@@ -305,6 +447,77 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
           </div>
         </article>
       </div>
+
+      <!-- Most Funded Panel -->
+      <div class="crowdfeed__cards crowdfeed__panel" id="panel-most-funded">
+        <article class="crowd-card">
+          <div class="crowd-card__image crowd-card__image--5"></div>
+          <div class="crowd-card__meta">
+            <span><i class="ri-heart-fill"></i> 219.6K</span>
+            <span><i class="ri-user-fill"></i> 219.4K</span>
+          </div>
+          <div class="crowd-card__body">
+            <p class="crowd-card__tag"><i class="ri-trophy-line"></i> MOST FUNDED <span>Campaign ended</span></p>
+            <h3><a href="/Explore">Exploding Kittens: Party Pack</a></h3>
+            <p class="crowd-card__brand">by Exploding Kittens LLC</p>
+          </div>
+          <div class="crowd-card__footer">
+            <strong>$8,782,571</strong>
+            <p>8,782% of goal funded</p>
+          </div>
+        </article>
+
+        <article class="crowd-card">
+          <div class="crowd-card__image crowd-card__image--6"></div>
+          <div class="crowd-card__meta">
+            <span><i class="ri-heart-fill"></i> 62.5K</span>
+            <span><i class="ri-user-fill"></i> 62.6K</span>
+          </div>
+          <div class="crowd-card__body">
+            <p class="crowd-card__tag"><i class="ri-trophy-line"></i> MOST FUNDED <span>Campaign ended</span></p>
+            <h3><a href="/Explore">Coolest Cooler: 60L Adventure Cooler</a></h3>
+            <p class="crowd-card__brand">by Coolest LLC</p>
+          </div>
+          <div class="crowd-card__footer">
+            <strong>$13,285,226</strong>
+            <p>26,570% of goal funded</p>
+          </div>
+        </article>
+
+        <article class="crowd-card">
+          <div class="crowd-card__image crowd-card__image--7"></div>
+          <div class="crowd-card__meta">
+            <span><i class="ri-heart-fill"></i> 19.2K</span>
+            <span><i class="ri-user-fill"></i> 19.3K</span>
+          </div>
+          <div class="crowd-card__body">
+            <p class="crowd-card__tag"><i class="ri-trophy-line"></i> MOST FUNDED <span>Campaign ended</span></p>
+            <h3><a href="/Explore">Kingdom Death: Monster 1.5</a></h3>
+            <p class="crowd-card__brand">by Kingdom Death</p>
+          </div>
+          <div class="crowd-card__footer">
+            <strong>$12,393,139</strong>
+            <p>4,131% of goal funded</p>
+          </div>
+        </article>
+
+        <article class="crowd-card">
+          <div class="crowd-card__image crowd-card__image--8"></div>
+          <div class="crowd-card__meta">
+            <span><i class="ri-heart-fill"></i> 44.8K</span>
+            <span><i class="ri-user-fill"></i> 34.9K</span>
+          </div>
+          <div class="crowd-card__body">
+            <p class="crowd-card__tag"><i class="ri-trophy-line"></i> MOST FUNDED <span>Campaign ended</span></p>
+            <h3><a href="/Explore">BAUBAX Travel Jacket 2.0</a></h3>
+            <p class="crowd-card__brand">by Baubax</p>
+          </div>
+          <div class="crowd-card__footer">
+            <strong>$9,192,055</strong>
+            <p>9,192% of goal funded</p>
+          </div>
+        </article>
+      </div>
     </section>
 
 
@@ -346,7 +559,7 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
           </article>
         </div>
 
-        <a href="/Explore" class="campaign-cta__button">Start your campaign</a>
+        <a href="/start-campaign.html" class="campaign-cta__button">Start your campaign</a>
       </div>
     </section>
 
@@ -389,7 +602,7 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
             <h3>CREATORS</h3>
             <a href="/Explore">Fees</a>
             <a href="/Explore">Marketing services</a>
-            <a href="/Explore">Become a creator</a>
+            <a href="/start-campaign.html">Become a creator</a>
             <a href="/Explore">Blog</a>
             <a href="/Explore">Help</a>
           </div>
@@ -416,5 +629,6 @@ CrowdNest combines all-in-one fundraising software, 0% fees, and built-in reward
         This site is protected by reCAPTCHA and standard privacy terms apply.
       </p>
     </footer>
+    <script src="/js/main.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start your campaign – CrowdNest</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <div class="nav-backdrop" id="nav-backdrop" hidden></div>
+
+        <div class="left-links">
+          <button
+            type="button"
+            class="nav-menu-toggle"
+            id="nav-menu-toggle"
+            aria-expanded="false"
+            aria-controls="nav-mobile-drawer"
+          >
+            <span class="visually-hidden">Menu</span>
+            <i class="ri-menu-line nav-menu-toggle__icon nav-menu-toggle__icon--menu" aria-hidden="true"></i>
+            <i class="ri-close-line nav-menu-toggle__icon nav-menu-toggle__icon--close" aria-hidden="true"></i>
+          </button>
+          <div class="logo">
+            <a href="/">CrowdNest</a>
+          </div>
+          <ul class="nav-desktop-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#explore">Explore projects</a></li>
+            <li><a href="index.html#how-it-works">How it works</a></li>
+          </ul>
+        </div>
+
+        <div class="middle">
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search for projects..."
+          /><button type="button" class="search_btn" aria-label="Search"><i class="ri-search-line"></i></button>
+        </div>
+
+        <div class="right-links">
+          <a href="/account/Login.html" class="nav-auth">Log in</a>
+          <a href="/account/signup.html" class="nav-auth nav-auth--primary">Sign up</a>
+        </div>
+
+        <div
+          id="nav-mobile-drawer"
+          class="nav-mobile-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
+          aria-hidden="true"
+        >
+          <ul class="nav-mobile-drawer__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#explore">Explore projects</a></li>
+            <li><a href="index.html#how-it-works">How it works</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="start-campaign-page" id="main">
+      <section class="start-campaign-hero" aria-labelledby="start-campaign-title">
+        <div class="start-campaign-hero__inner">
+          <p class="start-campaign-hero__eyebrow">For creators</p>
+          <h1 id="start-campaign-title">Start your campaign</h1>
+          <p class="start-campaign-hero__lead">
+            Tell us about your project in a few minutes. You can refine your page,
+            rewards, and story before you go live.
+          </p>
+          <ul class="start-campaign-hero__steps" aria-label="What happens next">
+            <li><i class="ri-edit-line" aria-hidden="true"></i> Draft your page</li>
+            <li><i class="ri-gift-line" aria-hidden="true"></i> Add rewards</li>
+            <li><i class="ri-rocket-line" aria-hidden="true"></i> Launch when you are ready</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="start-campaign-panel" aria-labelledby="start-campaign-form-title">
+        <div class="start-campaign-panel__inner">
+          <h2 id="start-campaign-form-title" class="visually-hidden">Campaign details</h2>
+
+          <div id="start-campaign-success" class="start-campaign-success" hidden tabindex="-1">
+            <div class="start-campaign-success__icon" aria-hidden="true">
+              <i class="ri-checkbox-circle-fill"></i>
+            </div>
+            <h3>Thanks — your draft is saved</h3>
+            <p>
+              In a full launch, you would continue to the editor to add media, rewards,
+              and payment details. This demo only collects your basics.
+            </p>
+            <a href="index.html" class="campaign-cta__button">Back to home</a>
+          </div>
+
+          <form id="start-campaign-form" class="start-campaign-form" novalidate>
+            <div class="start-campaign-form__row">
+              <label class="start-campaign-form__field">
+                <span class="start-campaign-form__label">Campaign title</span>
+                <input
+                  type="text"
+                  name="title"
+                  id="campaign-title"
+                  required
+                  maxlength="120"
+                  placeholder="What are you raising funds for?"
+                  autocomplete="off"
+                />
+              </label>
+            </div>
+
+            <div class="start-campaign-form__row start-campaign-form__row--split">
+              <label class="start-campaign-form__field">
+                <span class="start-campaign-form__label">Category</span>
+                <select name="category" id="campaign-category" required>
+                  <option value="">Choose a category</option>
+                  <option>Technology</option>
+                  <option>Arts</option>
+                  <option>Music</option>
+                  <option>Film &amp; video</option>
+                  <option>Publishing</option>
+                  <option>Food</option>
+                  <option>Fashion</option>
+                  <option>Community</option>
+                </select>
+              </label>
+              <label class="start-campaign-form__field">
+                <span class="start-campaign-form__label">Funding goal (USD)</span>
+                <input
+                  type="number"
+                  name="goal"
+                  id="campaign-goal"
+                  required
+                  min="1"
+                  step="1"
+                  placeholder="5000"
+                />
+              </label>
+            </div>
+
+            <div class="start-campaign-form__row start-campaign-form__row--split">
+              <label class="start-campaign-form__field">
+                <span class="start-campaign-form__label">Campaign length</span>
+                <select name="duration" id="campaign-duration" required>
+                  <option value="">Select duration</option>
+                  <option value="30">30 days</option>
+                  <option value="45">45 days</option>
+                  <option value="60">60 days</option>
+                </select>
+              </label>
+              <label class="start-campaign-form__field">
+                <span class="start-campaign-form__label">Contact email</span>
+                <input
+                  type="email"
+                  name="email"
+                  id="campaign-email"
+                  required
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                />
+              </label>
+            </div>
+
+            <div class="start-campaign-form__row">
+              <label class="start-campaign-form__field">
+                <span class="start-campaign-form__label">Short description</span>
+                <textarea
+                  name="blurb"
+                  id="campaign-blurb"
+                  required
+                  rows="5"
+                  maxlength="2000"
+                  placeholder="Explain your project and why backers should care."
+                ></textarea>
+              </label>
+            </div>
+
+            <p class="start-campaign-form__note">
+              By continuing you agree to our community guidelines. Fees and payout
+              schedules are summarized before you publish.
+            </p>
+
+            <div class="start-campaign-form__actions">
+              <button type="submit" class="campaign-cta__button">Save &amp; continue</button>
+              <a href="index.html" class="start-campaign-form__cancel">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-labelledby="site-footer-brand">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <h2 id="site-footer-brand">CROWDNEST</h2>
+          <p>The Future of Creativity</p>
+
+          <div class="site-footer__social">
+            <a href="/Explore" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="/Explore" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+            <a href="/Explore" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+            <a href="/Explore" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="/Explore" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
+          </div>
+
+          <label for="platform-language" class="site-footer__language-label">Platform language</label>
+          <div class="site-footer__select-wrap">
+            <select id="platform-language" name="platform-language">
+              <option>English (default)</option>
+              <option>French</option>
+              <option>German</option>
+            </select>
+            <i class="ri-arrow-down-s-line"></i>
+          </div>
+
+          <p class="site-footer__note">
+            Platform translation (beta) was provided by AI. Help us improve.
+          </p>
+        </div>
+
+        <div class="site-footer__links">
+          <div class="site-footer__column">
+            <h3>PLATFORM</h3>
+            <a href="/Explore">Contact</a>
+            <a href="/Explore">Crowdfunding Guide</a>
+          </div>
+          <div class="site-footer__column">
+            <h3>CREATORS</h3>
+            <a href="/Explore">Fees</a>
+            <a href="/Explore">Marketing services</a>
+            <a href="start-campaign.html">Become a creator</a>
+            <a href="/Explore">Blog</a>
+            <a href="/Explore">Help</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="site-footer__policies">
+          <a href="/Explore">Privacy Policy</a>
+          <a href="/Explore">Terms of Service</a>
+          <a href="/Explore">Privacy Settings</a>
+          <a href="/Explore">We do not sell your data</a>
+        </div>
+
+        <div class="site-footer__payments" aria-label="Accepted payment methods">
+          <span><img src="https://cdn.static.indiegogo.com/content/20260325.3-13/images/payments/card-icon-visa.svg" alt=""></span>
+          <span><img src="https://cdn.static.indiegogo.com/content/20260325.3-13/images/payments/card-icon-mastercard.svg" alt=""></span>
+          <span><img src="https://cdn.static.indiegogo.com/content/20260325.3-13/images/payments/card-icon-jcb.svg" alt=""></span>
+          <span><img src="https://cdn.static.indiegogo.com/content/20260325.3-13/images/payments/card-icon-discover.svg" alt=""></span>
+        </div>
+      </div>
+
+      <p class="site-footer__legal">
+        This site is protected by reCAPTCHA and standard privacy terms apply.
+      </p>
+    </footer>
+
+    <script src="/js/main.js" defer></script>
+    <script>
+      (function () {
+        var form = document.getElementById("start-campaign-form");
+        var success = document.getElementById("start-campaign-success");
+        if (!form || !success) return;
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+          form.setAttribute("hidden", "");
+          success.removeAttribute("hidden");
+          success.focus();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      })();
+    </script>
+  </body>
+</html>
