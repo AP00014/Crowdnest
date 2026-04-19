@@ -128,7 +128,8 @@ nav.site-nav {
   border-bottom: 1px solid #e5e7eb;
 }
 
-.nav-mobile-drawer__list a {
+.nav-mobile-drawer__list a,
+.nav-mobile-drawer__list span {
   display: block;
   padding: 14px 4px;
   text-decoration: none;
@@ -146,7 +147,8 @@ nav .logo {
   color: #1e3a8a;
   align-self: center;
 }
-nav .logo a {
+nav .logo a,
+nav .logo span {
   text-decoration: none;
   color: inherit;
 }
@@ -167,7 +169,8 @@ nav .logo a {
   margin: 0;
   padding: 10px;
 }
-.left-links ul li a {
+.left-links ul li a,
+.left-links ul li span {
   text-decoration: none;
   color: #0d0d0d;
 }
@@ -540,7 +543,9 @@ nav .logo a {
 }
 
 .project-info h3 a,
-.mini-project__info h3 a {
+.project-info h3 span,
+.mini-project__info h3 a,
+.mini-project__info h3 span {
   color: #24262a;
   text-decoration: none;
 }
@@ -824,7 +829,8 @@ nav .logo a {
   font-size: 1.2rem;
 }
 
-.discover-item__title a {
+.discover-item__title a,
+.discover-item__title span {
   color: #1a1a1a;
   text-decoration: none;
 }
@@ -920,6 +926,179 @@ nav .logo a {
 
 .donate-btn i {
   font-size: 14px;
+}
+
+/* Payment mockup (featured + discover) */
+.payment-mock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.featured-project .payment-mock {
+  margin-top: 16px;
+}
+
+body.payment-mock-open {
+  overflow: hidden;
+}
+
+.payment-mock-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  box-sizing: border-box;
+}
+
+.payment-mock-modal[hidden] {
+  display: none !important;
+}
+
+.payment-mock-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.payment-mock-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px 22px 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e5e7eb;
+}
+
+.payment-mock-modal__x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: #f3f4f6;
+  color: #374151;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.payment-mock-modal__x:hover {
+  background: #e5e7eb;
+}
+
+.payment-mock-modal__title {
+  font-size: 1.2rem;
+  color: #111827;
+  margin: 0 36px 8px 0;
+}
+
+.payment-mock-modal__project {
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.45;
+  margin: 0 0 16px;
+}
+
+.payment-mock-modal__methods {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px 14px 10px;
+  margin: 0 0 14px;
+}
+
+.payment-mock-modal__methods legend {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #6b7280;
+  padding: 0 4px;
+}
+
+.payment-mock-modal__method {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #1f2937;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.payment-mock-modal__method:last-child {
+  margin-bottom: 0;
+}
+
+.payment-mock-modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.payment-mock-modal__amount-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.payment-mock-modal__input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.payment-mock-modal__hint {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin: 0 0 14px;
+}
+
+.payment-mock-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.payment-mock-modal__confirm {
+  flex: 1 1 auto;
+  min-width: 120px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1e3a8a;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payment-mock-modal__confirm:hover {
+  background: #3b82f6;
+}
+
+.payment-mock-modal__close {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payment-mock-modal__close:hover {
+  background: #f9fafb;
 }
 
 .discover-item__media--a {
@@ -1097,7 +1276,8 @@ nav .logo a {
   margin-bottom: 6px;
 }
 
-.crowd-card__body h3 a {
+.crowd-card__body h3 a,
+.crowd-card__body h3 span {
   text-decoration: none;
   color: #242424;
 }
@@ -1362,7 +1542,8 @@ nav .logo a {
   margin-bottom: 4px;
 }
 
-.site-footer__column a {
+.site-footer__column a,
+.site-footer__column span {
   text-decoration: none;
   color: #f1f1f1;
   font-size: 1rem;
@@ -1384,7 +1565,8 @@ nav .logo a {
   flex-wrap: wrap;
 }
 
-.site-footer__policies a {
+.site-footer__policies a,
+.site-footer__policies span {
   text-decoration: none;
   color: #d6d6dc;
   font-size: 0.96rem;
@@ -1540,7 +1722,8 @@ nav .logo a {
     padding: 8px 16px;
   }
 
-  .auth-nav .logo a {
+  .auth-nav .logo a,
+  .auth-nav .logo span {
     font-size: 18px;
   }
 
@@ -1879,7 +2062,8 @@ nav .logo a {
     font-size: 1.2rem;
   }
 
-  .discover-item__title a {
+  .discover-item__title a,
+  .discover-item__title span {
     font-size: 0.95rem;
   }
 
@@ -1930,7 +2114,8 @@ nav .logo a {
     font-size: 1.1rem;
   }
 
-  .site-footer__column a {
+  .site-footer__column a,
+  .site-footer__column span {
     font-size: 0.9rem;
   }
 
@@ -1938,7 +2123,8 @@ nav .logo a {
     padding: 12px 4vw;
   }
 
-  .site-footer__policies a {
+  .site-footer__policies a,
+  .site-footer__policies span {
     font-size: 0.85rem;
   }
 
@@ -1947,7 +2133,8 @@ nav .logo a {
   }
 
   /* Auth */
-  .auth-nav .logo a {
+  .auth-nav .logo a,
+  .auth-nav .logo span {
     font-size: 16px;
   }
 
@@ -2133,6 +2320,10 @@ nav .logo a {
   font-weight: 600;
   text-decoration: none;
   font-size: 0.95rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .start-campaign-form__cancel:hover {

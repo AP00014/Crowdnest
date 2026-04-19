@@ -34,7 +34,8 @@
             z-index: 1000;
         }
 
-        .auth-nav .logo a {
+        .auth-nav .logo a,
+        .auth-nav .logo span {
             font-size: 22px;
             font-weight: 700;
             color: #1e3a8a;
@@ -169,14 +170,9 @@
             color: #6b7280;
         }
 
-        .auth-card .auth-footer a {
+        .auth-card .auth-footer strong {
             color: #1e3a8a;
             font-weight: 600;
-            text-decoration: none;
-        }
-
-        .auth-card .auth-footer a:hover {
-            text-decoration: underline;
         }
 
         /* Responsive adjustments */
@@ -186,7 +182,8 @@
             height: auto;
             padding: 10px 16px;
           }
-          .auth-nav .logo a {
+          .auth-nav .logo a,
+          .auth-nav .logo span {
             font-size: 18px;
           }
           .auth-nav .nav-links span {
@@ -214,7 +211,8 @@
           .auth-nav {
             padding: 8px 12px;
           }
-          .auth-nav .logo a {
+          .auth-nav .logo a,
+          .auth-nav .logo span {
             font-size: 16px;
           }
           .auth-card {
@@ -231,7 +229,7 @@
     <!-- Navbar -->
     <nav class="auth-nav">
         <div class="logo">
-            <a href="/">CrowdNest</a>
+            <span>CrowdNest</span>
         </div>
         <div class="nav-links">
             <span>Already have an account?</span>
@@ -274,7 +272,7 @@
                 <button type="submit">Sign Up</button>
             </form>
             <p class="auth-footer">
-                Already have an account? <a href="/account/Login.html">Log in</a>
+                Already have an account? <strong>Log in</strong>
             </p>
         </div>
     </div>

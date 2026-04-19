@@ -1,4 +1,3 @@
-
 const heroSliderEl = document.querySelector(".hero-slider");
 
 if (heroSliderEl) {
@@ -154,3 +153,79 @@ if (crowdTabs.length > 0) {
     });
   });
 }
+
+// =============================================================================
+// 4) PAYMENT MOCKUP — featured + discover cards (Fund / Donate → modal)
+// =============================================================================
+
+(function setupPaymentMock() {
+  const modal = document.getElementById("payment-mock-modal");
+  if (!modal) {
+    return;
+  }
+
+  const backdrop = modal.querySelector(".payment-mock-modal__backdrop");
+  const closeBtn = modal.querySelector(".payment-mock-modal__close");
+  const xBtn = modal.querySelector(".payment-mock-modal__x");
+  const confirmBtn = modal.querySelector(".payment-mock-modal__confirm");
+  const nameEl = document.getElementById("payment-mock-project-name");
+  const amountLabel = modal.querySelector(".payment-mock-modal__amount-label");
+  const amountInput = document.getElementById("payment-mock-amount");
+  function isOpen() {
+    return !modal.hidden;
+  }
+
+  function openModal(wrap) {
+    const name = wrap.getAttribute("data-project") || "Project";
+    const cur = wrap.getAttribute("data-currency") || "$";
+    if (nameEl) {
+      nameEl.textContent = name;
+    }
+    if (amountLabel) {
+      amountLabel.textContent = "Volunteer amount (" + cur + ")";
+    }
+    modal.hidden = false;
+    document.body.classList.add("payment-mock-open");
+    if (amountInput) {
+      amountInput.focus();
+    }
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.classList.remove("payment-mock-open");
+  }
+
+  document.querySelectorAll(".payment-mock").forEach(function (wrap) {
+    const payBtn = wrap.querySelector(".fund-btn--payment, .donate-btn--payment");
+
+    if (payBtn) {
+      payBtn.addEventListener("click", function () {
+        openModal(wrap);
+      });
+    }
+  });
+
+  [backdrop, closeBtn, xBtn].forEach(function (el) {
+    if (el) {
+      el.addEventListener("click", closeModal);
+    }
+  });
+
+  if (confirmBtn) {
+    confirmBtn.addEventListener("click", function () {
+      const amt = amountInput ? amountInput.value : "";
+      const picked = modal.querySelector('input[name="payment-mock-method"]:checked');
+      const method = picked ? picked.value : "card";
+      const label = nameEl ? nameEl.textContent : "this project";
+      window.alert("Demo only: " + method + " — " + label + " — amount " + amt);
+      closeModal();
+    });
+  }
+
+  window.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && isOpen()) {
+      closeModal();
+    }
+  });
+})();
