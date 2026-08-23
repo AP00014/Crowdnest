@@ -1,14 +1,10 @@
+const HOSTED_API = 'https://crowdnest-backend-mkpa.onrender.com'
+
 function getApiBase() {
   const fromEnv = String(import.meta.env.VITE_API_URL || '').trim().replace(/\/$/, '')
-  if (fromEnv) return fromEnv
-  if (import.meta.env.DEV) return 'http://localhost:5000'
-  return ''
-}
-
-const API_BASE = getApiBase()
-
-if (import.meta.env.PROD && (!API_BASE || /localhost|127\.0\.0\.1/.test(API_BASE))) {
-  console.warn('CrowdNest: set VITE_API_URL to your hosted API URL (no trailing slash) and rebuild.')
+  if (import.meta.env.DEV) return fromEnv || 'http://localhost:5000'
+  if (fromEnv && !/localhost|127\.0\.0\.1/.test(fromEnv)) return fromEnv
+  return HOSTED_API
 }
 const TOKEN_KEY = 'crowdnest_token'
 
@@ -29,10 +25,6 @@ export async function api(path, options = {}) {
   const { body, headers, ...rest } = options
   const token = getToken()
   const base = getApiBase()
-
-  if (!base) {
-    throw new Error('API URL is missing. Set VITE_API_URL to your hosted backend, then rebuild the frontend.')
-  }
 
   const response = await fetch(`${base}${path}`, {
     credentials: 'include',
