@@ -50,6 +50,9 @@ export function AuthProvider({ children }) {
       clearAuth()
       setUser(null)
     },
+    updateUser(next) {
+      setUser((current) => (current ? { ...current, ...next } : current))
+    },
   }), [user, ready])
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

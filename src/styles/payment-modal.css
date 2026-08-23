@@ -39,7 +39,9 @@ body.payment-mock-open {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
   background: #fff;
   border-radius: 14px;
   padding: 22px 22px 18px;
@@ -103,6 +105,10 @@ body.payment-mock-open {
   color: #1f2937;
   margin-bottom: 8px;
   cursor: pointer;
+}
+
+.payment-mock-modal__method i {
+  color: #1e3a8a;
 }
 
 .payment-mock-modal__method:last-child {
@@ -169,4 +175,83 @@ body.payment-mock-open {
 
 .payment-mock-modal__close:hover {
   background: #f9fafb;
+}
+
+.payment-mock-modal__guest {
+  margin: -6px 0 14px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.payment-mock-modal__guest--signed {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.payment-mock-modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-mock-modal__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.payment-mock-modal__card {
+  margin-bottom: 4px;
+}
+
+.payment-mock-modal__error {
+  margin: 0 0 12px;
+  color: #b91c1c;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.payment-mock-modal__confirm:disabled,
+.payment-mock-modal__close:disabled,
+.payment-mock-modal__x:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.payment-mock-modal__success {
+  text-align: center;
+}
+
+.payment-mock-modal__check {
+  width: 52px;
+  height: 52px;
+  margin: 4px auto 12px;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #15803d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.payment-mock-modal__thanks {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.payment-mock-modal__ref {
+  margin: 0 0 16px;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  word-break: break-all;
+}
+
+.payment-mock-modal__success .payment-mock-modal__actions {
+  justify-content: center;
 }

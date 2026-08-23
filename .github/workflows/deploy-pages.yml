@@ -28,7 +28,12 @@ jobs:
           cache: npm
 
       - name: Install and build
+        env:
+          API_URL: ${{ vars.VITE_API_URL }}
         run: |
+          if [ -n "$API_URL" ]; then
+            export VITE_API_URL="$API_URL"
+          fi
           npm ci
           npm run build
 

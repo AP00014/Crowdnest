@@ -1,4 +1,15 @@
-const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:5000'
+function getApiBase() {
+  const fromEnv = String(import.meta.env.VITE_API_URL || '').trim().replace(/\/$/, '')
+  if (fromEnv) return fromEnv
+  if (import.meta.env.DEV) return 'http://localhost:5000'
+  return ''
+}
+
+const API_BASE = getApiBase()
+
+if (import.meta.env.PROD && (!API_BASE || /localhost|127\.0\.0\.1/.test(API_BASE))) {
+  console.warn('CrowdNest: set VITE_API_URL to your hosted API URL (no trailing slash) and rebuild.')
+}
 const TOKEN_KEY = 'crowdnest_token'
 
 export function getToken() {
@@ -17,8 +28,13 @@ export function clearAuth() {
 export async function api(path, options = {}) {
   const { body, headers, ...rest } = options
   const token = getToken()
+  const base = getApiBase()
 
-  const response = await fetch(`${API_BASE}${path}`, {
+  if (!base) {
+    throw new Error('API URL is missing. Set VITE_API_URL to your hosted backend, then rebuild the frontend.')
+  }
+
+  const response = await fetch(`${base}${path}`, {
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
@@ -30,6 +46,10 @@ export async function api(path, options = {}) {
   })
 
   const data = await response.json().catch(() => ({}))
+
+  if (response.status === 404) {
+    throw new Error('Login API was not found on this host. Point VITE_API_URL at the Express backend, not the website.')
+  }
 
   if (!response.ok) {
     throw new Error(data.message || 'Request failed')
@@ -52,4 +72,8 @@ export async function signupUser(payload) {
 
 export function getCurrentUser() {
   return api('/api/auth/me')
+}
+
+export function createPledge(payload) {
+  return api('/api/pledges', { method: 'POST', body: payload })
 }
