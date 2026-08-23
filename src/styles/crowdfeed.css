@@ -1,0 +1,210 @@
+/* crowdfeed */
+
+.crowdfeed {
+
+  padding: 34px 1.5vw 44px;
+}
+
+
+
+.crowdfeed__top {
+  max-width: 1500px;
+  margin: 0 auto 16px;
+}
+
+.crowdfeed__top h2 {
+  color: #1f1f1f;
+  font-size: 1.9rem;
+  margin-bottom: 12px;
+}
+
+.crowdfeed__tabs {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.crowdfeed__tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  color: #969696;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-bottom: 7px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.crowdfeed__tab:hover {
+  color: #1E3A8A;
+}
+
+.crowdfeed__tab--active {
+  color: #1E3A8A;
+  border-bottom-color: #1E3A8A;
+}
+
+/* Panels: hidden by default, visible when .active */
+.crowdfeed__panel {
+  display: none;
+}
+
+.crowdfeed__panel.active {
+  display: flex;
+}
+
+.crowdfeed__cards {
+  gap: 14px;
+  max-width: 1500px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.crowd-card {
+  flex: 1 1 0;
+  min-width: 260px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border-bottom: 4px solid #1E3A8A;
+   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.07);
+}
+
+.crowd-card__image {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  background-size: cover;
+  background-position: center;
+}
+
+.crowd-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+}
+
+.crowd-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 4px 10px;
+  color: #2b2b2b;
+  font-weight: 700;
+  font-size: 0.8rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.crowd-card__meta i {
+  font-size: 0.85rem;
+  color: #1E3A8A;
+}
+
+.crowd-card__body {
+  padding: 4px 14px 52px;
+  min-height: 178px;
+}
+
+.crowd-card__tag {
+  color: #1E3A8A;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.crowd-card__tag span {
+  color: #8f8f8f;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.crowd-card__body h3 {
+  font-size: 1rem;
+  line-height: 1.08;
+  margin-bottom: 6px;
+}
+
+.crowd-card__body h3 a,
+.crowd-card__body h3 span {
+  text-decoration: none;
+  color: #242424;
+}
+
+.crowd-card__brand {
+  color: #7f7f7f;
+  font-size: 0.9rem;
+}
+
+.crowd-card__footer {
+  padding: 0 14px 10px;
+}
+
+.crowd-card__footer strong {
+  display: block;
+  color: #2a2a2a;
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+
+.crowd-card__footer p {
+  color: #8f8f8f;
+  font-size: 0.85rem;
+}
+
+.crowd-card__image--1 {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.2)),
+    url("https://cf.geekdo-images.com/VBrxRvZ2P2JKfa996LYc0A__itemrep/img/SE_WpnPr02Q-ng0nhRpYk5EEBDE=/fit-in/246x300/filters:strip_icc()/pic9044742.jpg");
+}
+
+.crowd-card__image--2 {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.2)),
+    url("https://imgcdn.gamefound.com/projectgallery/projects/6025/2ab692f4-8e0a-4c91-a046-1f85498c4ec8.png");
+}
+
+.crowd-card__image--3 {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.2)),
+    url("https://imgcdn.gamefound.com/og-image-square/projects/6611/b13d6896-f6b6-44bc-8be9-d8f288d22d76.jpg");
+}
+
+.crowd-card__image--4 {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.2)),
+    url("https://imgcdn.gamefound.com/projectupdate/projects/2895/4ee03b11-0383-434c-a649-886d9d98e1c8.png");
+}
+
+/* Most Funded card images */
+.crowd-card__image--5 {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.2)),
+    url("https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=800&q=80");
+}
+
+.crowd-card__image--6 {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.2)),
+    url("https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&w=800&q=80");
+}
+
+.crowd-card__image--7 {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.2)),
+    url("https://images.unsplash.com/photo-1585504198199-20277593b94f?auto=format&fit=crop&w=800&q=80");
+}
+
+.crowd-card__image--8 {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.2)),
+    url("https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80");
+}
+
+@media (max-width: 980px) {
+  .crowd-card__body h3 {
+    font-size: 1.4rem;
+  }
+}

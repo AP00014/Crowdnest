@@ -1,0 +1,20 @@
+{
+  "name": "crowdnest",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --max-http-header-size=131072 ./node_modules/vite/bin/vite.js",
+    "build": "vite build && node scripts/copy-spa-fallback.js",
+    "preview": "node --max-http-header-size=131072 ./node_modules/vite/bin/vite.js preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "vite": "^7.3.1"
+  }
+}
