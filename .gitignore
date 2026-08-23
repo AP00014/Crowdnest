@@ -5,6 +5,4 @@ dist
 .vite
 .env
 .env.local
-backend/.env
-backend/data
 
